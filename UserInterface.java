@@ -14,10 +14,11 @@ public class UserInterface {
         JFrame newFrame = new JFrame();
         JPanel newPanel = new JPanel();
         JButton newButton = new JButton("This does nothing and you will be happy with it");
+        newButton.setBounds(200,200,200,200);
         newPanel.add(newButton);
         newFrame.setContentPane(newPanel);
         newFrame.setTitle("hahahahhahahahaha this is a virus");
-        newFrame.setSize(1000,1000);
+        newFrame.setSize(600,600);
         newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         newFrame.setVisible(true);
 
