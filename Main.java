@@ -4,6 +4,6 @@
  * 
  */
 
-public  {
+public class Main {
     
 }
