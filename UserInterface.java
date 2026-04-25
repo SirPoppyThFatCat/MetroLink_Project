@@ -61,7 +61,7 @@ public class UserInterface {
 
         newFrame.setContentPane(newPanel);
         newFrame.setTitle("hahahahhahahahaha this is a virus");
-        newFrame.setSize(600, 600);
+        newFrame.setSize(1920, 1080);
         newFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         newFrame.setVisible(true);
         
