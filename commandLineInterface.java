@@ -23,13 +23,13 @@ public class commandLineInterface {
 
 class stationScanner {
     public static void main(String[] args) {
-        try (BufferedReader bufReader = new BufferedReader(new FileReader("Metrolink_times_linecolour(in).csv"))){
+        try (BufferedReader bufReader = new BufferedReader(new FileReader("Metrolink_times_linecolour(in).csv"))){ // make sure to do full filename
             String line;
             while ((line = bufReader.readLine()) != null){
                 System.out.println(line);
             }
         } catch(IOException e) {
-            System.out.println("ahh shit the file doesn't work");
+            System.out.println("ahh shit the file doesn't work"); // need to redo the exemption in the future
         }
     }
 }
