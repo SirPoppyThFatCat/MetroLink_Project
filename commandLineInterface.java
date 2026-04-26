@@ -19,7 +19,7 @@ public class commandLineInterface {
             System.out.println("beans");
             //stationScanner.scanStations();
 
-        } while (correctStart && correctDestination == false);
+        } while (!correctStart || !correctDestination == false);
 
     }
 }
