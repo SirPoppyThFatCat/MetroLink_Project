@@ -19,10 +19,12 @@ public class commandLineInterface {
         System.out.println("Your starting station is: " + inputStation + " and your destination station is: " + destinationStation); // temporary, sanity checking for myself
         System.out.println("beans");
     }
+
 }
 
 class stationScanner {
-    public static void main(String[] args) {
+    //public static void scanStations() {
+    public static void printOut(String[] args) {
         try (BufferedReader bufReader = new BufferedReader(new FileReader("Metrolink_times_linecolour(in).csv"))){ // make sure to do full filename
             String line;
             while ((line = bufReader.readLine()) != null){
@@ -33,3 +35,4 @@ class stationScanner {
         }
     }
 }
+//}
