@@ -13,7 +13,7 @@ public class stationScanner {
 
     public static List<String> scanStations(String filePath, int columnIndex) {
         List<String> columnData = new ArrayList<>();
-        ArrayList<String> stationsData = new ArrayList<>();
+        //ArrayList<String> stationsData = new ArrayList<>(); to be used later. 
         String toSplitBy = ",";
         try (BufferedReader bufReader = Files.newBufferedReader(Paths.get(filePath))) {
             String line;
@@ -27,5 +27,5 @@ public class stationScanner {
             System.out.println("ahh shit the file doesn't work"); // need to redo the exemption in the future
         }
         return columnData;
-        }
-    } 
+    }
+}
