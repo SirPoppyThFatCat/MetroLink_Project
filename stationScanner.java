@@ -24,7 +24,7 @@ public class stationScanner {
                 // columnData.add(values[columnIndex]);
                 String[] values = line.split(",");
                 if(values.length>2){
-                System.out.println(values[0]);}
+                System.out.println(values[0].trim().toLowerCase().contains("pomona"));}
                 // to compare values, do a for loop, iterate through all the stations. use <ARRAYLIST.CONTAINS("Start and end station")> possibly also use trimmed.toUpperCase or trimmed.toLowerCase to maniupulate text and make it all in the same case. 
                 // e.g. if(arraylist.contains station, print "you are not idiot" or something like that)
                 //sysout (searching for blah blah blah). replace with searching logic
