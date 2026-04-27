@@ -10,7 +10,7 @@ public class stationScanner {
         scanStations();
     }
 
-    public static void /* List<String> */ scanStations(/* String filePath, int columnIndex */) {
+    public static void /* List<String> */ scanStations(/* String filePath, int columnIndex */ /*String stationName*/) {
         // List<String> columnData = new ArrayList<>();
         // ArrayList<String> stationsData = new ArrayList<>(); to be used later.
         // String toSplitBy = ",";
@@ -22,7 +22,13 @@ public class stationScanner {
                 // String[] values = line.split(toSplitBy);
                 // if (columnIndex < values.length) {
                 // columnData.add(values[columnIndex]);
-                System.out.println(line);
+                String[] values = line.split(",");
+                if(values.length>2){
+                System.out.println(values[0]);}
+                // to compare values, do a for loop, iterate through all the stations. use <ARRAYLIST.CONTAINS("Start and end station")> possibly also use trimmed.toUpperCase or trimmed.toLowerCase to maniupulate text and make it all in the same case. 
+                // e.g. if(arraylist.contains station, print "you are not idiot" or something like that)
+                //sysout (searching for blah blah blah). replace with searching logic
+
             }
         } catch (IOException e) {
             System.out.println("ahh shit the file doesn't work"); // need to redo the exemption in the future
