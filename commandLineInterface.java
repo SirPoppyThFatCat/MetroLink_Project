@@ -5,11 +5,16 @@ public class commandLineInterface {
     public static void main(String[] args) {
         boolean correctStart = false;
         boolean correctDestination = false;
-        do {
+        
             Scanner stations = new Scanner(System.in);
             // vars for the user to input the station
             System.out.println("Enter your starting station: ");
             String inputStation = stations.nextLine().trim().toLowerCase(); // 
+            stationScanner input = new stationScanner(inputStation);
+
+          
+
+
             //String inputStation = trimmed.toLowerCase(); 
             //  Convert to uppercase
             // then do stationScanner.scanStations(inputStation)
@@ -23,25 +28,13 @@ public class commandLineInterface {
             System.out.println("beans");
             // stationScanner.scanStations();
 
-        } while (!correctStart || !correctDestination == false);
+        //} while (!correctStart || !correctDestination == false);
+        public String getInputStation(){
+            return inputStation;
+           }
 
     }
-}
+    
 
-/*
- * public class stationScanner {
- * public static void scanStations() {
- * try (BufferedReader bufReader = new BufferedReader(new
- * FileReader("Metrolink_times_linecolour(in).csv"))) {
- * String line;
- * while ((line = bufReader.readLine()) != null) {
- * System.out.println(line);
- * }
- * } catch (IOException e) {
- * System.out.println("ahh shit the file doesn't work"); // need to redo the
- * exemption in the future
- * }
- * }
- * }
- * 
- */
+
+}
