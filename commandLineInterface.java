@@ -7,7 +7,7 @@ public class commandLineInterface {
         boolean correctDestination = false;
         
             Scanner stations = new Scanner(System.in);
-            // vars for the user to input the station
+             vars for the user to input the station
             System.out.println("Enter your starting station: ");
             String inputStation = stations.nextLine().trim().toLowerCase(); // 
             stationScanner input = new stationScanner(inputStation);
@@ -15,20 +15,20 @@ public class commandLineInterface {
           
 
 
-            //String inputStation = trimmed.toLowerCase(); 
-            //  Convert to uppercase
-            // then do stationScanner.scanStations(inputStation)
+            String inputStation = trimmed.toLowerCase(); 
+            Convert to uppercase
+            then do stationScanner.scanStations(inputStation)
 
             System.out.println("Enter your destination station: ");
             String destinationStation = stations.nextLine().trim().toLowerCase(); // 
-           //String destinationStation= trimmed.toLowerCase(); // Convert to
+           String destinationStation= trimmed.toLowerCase(); // Convert to
                                                              // uppercase
 
             System.out.println("Your starting station is: " + inputStation + " and your destination station is: " + destinationStation); // temporary, sanity checking for myself
             System.out.println("beans");
-            // stationScanner.scanStations();
+            stationScanner.scanStations();
 
-        //} while (!correctStart || !correctDestination == false);
+        } while (!correctStart || !correctDestination == false);
         public String getInputStation(){
             return inputStation;
            }
