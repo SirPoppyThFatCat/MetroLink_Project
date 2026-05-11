@@ -1,0 +1,22 @@
+/*static void searchForStation(String inputStation, String destinationStation) {
+
+        String path = "Metrolink_times_linecolour(in).csv";
+        Set<String> stations = new HashSet<>();
+        String seperator = ",";
+        try (BufferedReader reader = new BufferedReader(new FileReader("Metrolink_times_linecolour(in).csv"));) {
+            String line = "";
+            while ((line = reader.readLine()) != null) {
+                String values[] = line.split(seperator);
+                if (values.length<2 || values[1].isEmpty()){
+                    continue;
+                }
+                stations.add(values[0].trim());
+                stations.add(values[1].trim());
+                System.out.println(stations);
+            }
+        } catch (IOException e) {
+        }
+
+        System.out.println(inputStation + " " + destinationStation);
+
+    } */

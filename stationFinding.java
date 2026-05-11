@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class stationFinding {
@@ -15,35 +14,16 @@ public class stationFinding {
 
         System.out.println(
                 "Your entry station is: " + inputStation + " and your destination station is: " + destinationStation);
-
-        searchForStation(inputStation, destinationStation);
-
     }
 
-    static void searchForStation(String inputStation, String destinationStation) {
-
-        String path = "Metrolink_times_linecolour(in).csv";
+    static void stationScanning(){
+        System.out.println("Beans");
         
-        String seperator = ",";
-        String stations;
-        try (BufferedReader reader = new BufferedReader(new FileReader("Metrolink_times_linecolour(in).csv"));) {
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String values[] = line.split(seperator);
-                stations.add(values[0]);
-            }
-            if (values.length>2) {
-                
-            }
-        } catch (IOException e) {
-        }
-
-        System.out.println(inputStation + " " + destinationStation);
-
     }
 
     public static void main(String[] args) {
-        chooseStations();
+        // chooseStations();
+        stationScanning();
 
     }
 }
