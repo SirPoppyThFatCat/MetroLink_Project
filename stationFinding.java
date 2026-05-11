@@ -1,3 +1,4 @@
+import java.io.FileReader;
 import java.util.*;
 
 public class stationFinding {
@@ -16,9 +17,20 @@ public class stationFinding {
                 "Your entry station is: " + inputStation + " and your destination station is: " + destinationStation);
     }
 
-    static void stationScanning(){
+    static void stationScanning() {
+        String stationFilePath = ("Metrolink_times_linecolour(in).csv");
         System.out.println("Beans");
+        ArrayList<String> stationArray = new ArrayList<String>();
+        Scanner stationScanner = new Scanner(new FileReader("Metrolink_times_linecolour(in).csv"))
+.useDelimiter(",");
+        String line = stationScanner.nextLine();
         
+
+
+        
+        
+
+        System.out.println(stationArray);
     }
 
     public static void main(String[] args) {
