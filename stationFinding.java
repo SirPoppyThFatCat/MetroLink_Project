@@ -30,17 +30,25 @@ public class stationFinding {
             String currentLineColour = null;
 
             while (stationScanner.hasNextLine()) {
-              String line = stationScanner.next();
+              String line = stationScanner.nextLine();
               String[] fields = line.split(",");
               
 
               if(fields[1].isEmpty() && fields[2].isEmpty()){
                 currentLineColour = fields[0];
                 continue;
-              }
             }
 
-            if (stationArray.contains(destinationStation)) {
+            String cameFromStation = fields[0];
+            String goingToStation = fields[1];
+            double time = Double.parseDouble(fields[2]); // cheeky typecast
+
+            Connection c = new Connection(currentLineColour, cameFromStation, goingToStation, time);
+            connections.add(c);
+
+            }
+
+            if (stationArray.contains(Connection.c.cameFromStation)) {
                 System.out.println("Your destination station is " + destinationStation);
             } else {
                 System.out.println("This feature currently is being worked on");
