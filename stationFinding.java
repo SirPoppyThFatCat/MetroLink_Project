@@ -27,9 +27,17 @@ public class stationFinding {
             ArrayList<Connection> connections = new ArrayList<Connection>();
 
             Scanner stationScanner = new Scanner(stationFilePath);
+            String currentLineColour = null;
 
             while (stationScanner.hasNextLine()) {
-                //System.out.println("");
+              String line = stationScanner.next();
+              String[] fields = line.split(",");
+              
+
+              if(fields[1].isEmpty() && fields[2].isEmpty()){
+                currentLineColour = fields[0];
+                continue;
+              }
             }
 
             if (stationArray.contains(destinationStation)) {

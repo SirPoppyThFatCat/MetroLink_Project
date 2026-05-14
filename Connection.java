@@ -12,4 +12,16 @@ public class Connection {
         this.travelTime = travelTime;
     }
     // getting the getters
+    public String getLineColour(){
+        return lineColour;
+    }
+    public String getFromStation(){
+        return fromStation;
+    }
+    public String getDestinationStation(){
+        return destinationStation;
+    }
+    public double getTravelTime(){
+        return travelTime;
+    }
 }
