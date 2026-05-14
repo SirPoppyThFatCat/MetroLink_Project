@@ -22,18 +22,21 @@ public class stationFinding {
     static void stationScanning(String inputStation, String destinationStation) {
         try {
             File stationFilePath = new File("Metrolink_times_linecolour(in).csv");
-            //System.out.println("Beans");
+            // System.out.println("Beans");
             ArrayList<String> stationArray = new ArrayList<String>();
-            Scanner stationScanner = new Scanner(stationFilePath).useDelimiter(",");
-            //String line = stationScanner.nextLine();
+            ArrayList<Connection> connections = new ArrayList<Connection>();
+
+            Scanner stationScanner = new Scanner(stationFilePath);
+
             while (stationScanner.hasNextLine()) {
-                stationArray.add(stationScanner.nextLine());
+                //System.out.println("");
             }
 
             if (stationArray.contains(destinationStation)) {
                 System.out.println("Your destination station is " + destinationStation);
+            } else {
+                System.out.println("This feature currently is being worked on");
             }
-            else{System.out.println("This feature currently is being worked on");}
             // System.out.println(stationArray);
         } catch (FileNotFoundException e) {
             System.out.println("bomboclaat no file found");
