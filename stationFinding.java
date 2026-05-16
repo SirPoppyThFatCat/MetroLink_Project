@@ -27,36 +27,50 @@ public class stationFinding {
             ArrayList<Connection> connections = new ArrayList<Connection>();
 
             Scanner stationScanner = new Scanner(stationFilePath);
+            String firstline = stationScanner.nextLine();
             String currentLineColour = null;
 
             while (stationScanner.hasNextLine()) {
-              String line = stationScanner.nextLine();
-              String[] fields = line.split(",");
-              
+                String line = stationScanner.nextLine();
+                String[] fields = line.split(",");
 
-              if(fields[1].isEmpty() && fields[2].isEmpty()){
-                currentLineColour = fields[0];
-                continue;
+                if (fields.length == 3 && fields[1].isEmpty() && fields[2].isEmpty()) {
+                    currentLineColour = fields[0];
+                    continue;
+                }
+
+                String cameFromStation = fields[0];
+                String goingToStation = fields[1];
+                double time = Double.parseDouble(fields[2]); // cheeky typecast
+
+                Connection c = new Connection(currentLineColour, cameFromStation, goingToStation, time);
+                connections.add(c);
+
             }
 
-            String cameFromStation = fields[0];
-            String goingToStation = fields[1];
-            double time = Double.parseDouble(fields[2]); // cheeky typecast
-
-            Connection c = new Connection(currentLineColour, cameFromStation, goingToStation, time);
-            connections.add(c);
-
-            }
-
-            if (stationArray.contains(Connection.c.cameFromStation)) {
+            if (stationExists(destinationStation, connections)) {
                 System.out.println("Your destination station is " + destinationStation);
             } else {
-                System.out.println("This feature currently is being worked on");
+                System.out.println("Station not found in the network");
             }
+            if (!stationExists(inputStation, connections)) {
+                System.out.println("Input station does not exist");
+            }
+
             // System.out.println(stationArray);
         } catch (FileNotFoundException e) {
             System.out.println("bomboclaat no file found");
         }
+    }
+
+    static boolean stationExists(String station, ArrayList<Connection> connections) {
+        for (Connection c : connections) {
+            if (c.getFromStation().equalsIgnoreCase(station) ||
+                    c.getDestinationStation().equalsIgnoreCase(station)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public static void main(String[] args) {
