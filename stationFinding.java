@@ -14,8 +14,7 @@ public class stationFinding {
         String destinationStation = myScanner.nextLine();
         // myScanner.close();
 
-        System.out.println(
-                "Your entry station is: " + inputStation + " and your destination station is: " + destinationStation);
+        //System.out.println("Your entry station is: " + inputStation + " and your destination station is: " + destinationStation);
         stationScanning(inputStation, destinationStation);
     }
 
@@ -33,8 +32,11 @@ public class stationFinding {
             while (stationScanner.hasNextLine()) {
                 String line = stationScanner.nextLine();
                 String[] fields = line.split(",");
+                if (fields.length < 3) {
+                    continue;
+                }
 
-                if (fields.length == 3 && fields[1].isEmpty() && fields[2].isEmpty()) {
+                if (fields[1].isEmpty() && fields[2].isEmpty()) {
                     currentLineColour = fields[0];
                     continue;
                 }
@@ -49,17 +51,24 @@ public class stationFinding {
             }
 
             if (stationExists(destinationStation, connections)) {
-                System.out.println("Your destination station is " + destinationStation);
+                System.out.println("Your destination station is " + destinationStation  + "\n\n");
             } else {
-                System.out.println("Station not found in the network");
+                System.out.println("Your destination Station: " + destinationStation + " not found in the network" + "\n\n");
+                chooseStations();
             }
             if (!stationExists(inputStation, connections)) {
-                System.out.println("Input station does not exist");
+                System.out.println("Input station does not exist, please try again\n\n");
+                try {
+                    Thread.sleep(500);
+
+                } catch (InterruptedException e) {
+                }
+                chooseStations();
             }
 
             // System.out.println(stationArray);
         } catch (FileNotFoundException e) {
-            System.out.println("bomboclaat no file found");
+            System.out.println("impressive gambit sir, you have managed to not have a file");
         }
     }
 
