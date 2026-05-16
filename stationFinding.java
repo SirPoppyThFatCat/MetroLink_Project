@@ -7,14 +7,20 @@ public class stationFinding {
     static void chooseStations() {
         // System.out.println("the station is this station");
         Scanner myScanner = new Scanner(System.in);
-        System.out.println("enter the input station: ");
+        System.out.println("----------------------------------------------------------");
+        System.out.println("Enter your starting station: ");
+
         String inputStation = myScanner.nextLine();
+        System.out.println("----------------------------------------------------------");
 
         System.out.println("enter the destination station: ");
         String destinationStation = myScanner.nextLine();
-        // myScanner.close();
+        System.out.println("----------------------------------------------------------");
 
-        //System.out.println("Your entry station is: " + inputStation + " and your destination station is: " + destinationStation);
+        myScanner.close();
+
+        // System.out.println("Your entry station is: " + inputStation + " and your
+        // destination station is: " + destinationStation);
         stationScanning(inputStation, destinationStation);
     }
 
@@ -49,24 +55,31 @@ public class stationFinding {
                 connections.add(c);
 
             }
-
-            if (stationExists(destinationStation, connections)) {
-                System.out.println("Your destination station is " + destinationStation  + "\n\n");
+            if (stationExists(inputStation, connections)) {
+                System.out.println("Your starting station is: " + inputStation);
             } else {
-                System.out.println("Your destination Station: " + destinationStation + " not found in the network" + "\n\n");
-                chooseStations();
-            }
-            if (!stationExists(inputStation, connections)) {
-                System.out.println("Input station does not exist, please try again\n\n");
+                System.out.println("Your starting Station: " + inputStation + " has not been found in the network. Please try again" + "\n\n");
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
 
                 } catch (InterruptedException e) {
                 }
                 chooseStations();
             }
 
-            // System.out.println(stationArray);
+
+            if (stationExists(destinationStation, connections)) {
+                System.out.println("Your destination station is " + destinationStation + "\n\n");
+            } else {
+                System.out.println("Your destination Station: " + destinationStation + " has not been found in the network. Please try again" + "\n\n");
+                try {
+                    Thread.sleep(1000);
+
+                } catch (InterruptedException e) {
+                }
+                chooseStations();
+            }
+
         } catch (FileNotFoundException e) {
             System.out.println("impressive gambit sir, you have managed to not have a file");
         }
