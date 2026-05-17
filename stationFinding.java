@@ -5,6 +5,7 @@ import java.util.*;
 
 public class stationFinding {
 
+    @SuppressWarnings("resource")
     static void chooseStations() {
         Scanner myScanner = new Scanner(System.in);
         System.out.println("----------------------------------------------------------");
@@ -27,7 +28,7 @@ public class stationFinding {
         // destination station is: " + destinationStation);
         stationScanning(inputStation, destinationStation);
     }
-    //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
+        //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
 
 
     static void stationScanning(String inputStation, String destinationStation) {
@@ -38,7 +39,7 @@ public class stationFinding {
             ArrayList<Connection> connections = new ArrayList<Connection>();
 
             Scanner stationScanner = new Scanner(stationFilePath);
-            String firstline = stationScanner.nextLine();
+            String firstline = stationScanner.nextLine(); // ignore
             String currentLineColour = null;
 
             while (stationScanner.hasNextLine()) {
@@ -59,6 +60,9 @@ public class stationFinding {
 
                 Connection c = new Connection(currentLineColour, cameFromStation, goingToStation, time);
                 connections.add(c);
+                GraphList<String> graph = new GraphList<String>();
+                graph.buildGraph(connections);
+                graph.print();
 
             }
             if (stationExists(inputStation, connections)) {

@@ -83,8 +83,10 @@ public class GraphList<Label> {
             node = node.next;
         }
     }
-
-}
-
 public static void main(String[] args) {
+    
 }
+
+
+}
+
