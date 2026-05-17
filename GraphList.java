@@ -1,13 +1,12 @@
 import java.util.*;
 
 public class GraphList<Label> {
-    
 
     // adjacency list container
     GraphNode headNode;
-    //Map<<c.fromStation, c.destinationStation>, Double> weights; 
+    // Map<<c.fromStation, c.destinationStation>, Double> weights;
 
-    public class GraphNode<label> {
+    public class GraphNode {
         Label id; // station name
         LinkedHashSet<GraphNode> edges; // set of neighbour nodes
         GraphNode next; // pointer to next station in the list
@@ -34,13 +33,37 @@ public class GraphList<Label> {
         return null;
     }
 
-    private void getOrCreateNode(Label label) {
-        GraphNode node = node;
+    public void getOrCreateNode(Label label) {
         node = findNode(label);
         if (node == null) {
             addNode(label);
             node = findNode(label);
+        } return;
+    }
+
+    public void addEdge(Label l1, Label l2) {
+        GraphNode node1 = findNode(l1);
+        GraphNode node2 = findNode(l2);
+        if (node1 != null && node2 != null) {
+            node1.edges.add(node2);
+            node2.edges.add(node1);
         }
+    }
+
+    public void print() {
+        GraphNode<Label> node = headNode;
+        while (node != null) {
+            System.out.print("[ " + node.id + " : ");
+            for (GraphNode<Label> neighbor : node.edges) {
+                System.out.print(neighbor.id + " ");
+            }
+            System.out.println("]");
+            node = node.next;
+        }
+    }
+
+    public static void main(String[] args) {
+
     }
 
 }
