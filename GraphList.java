@@ -60,8 +60,31 @@ public class GraphList<Label> {
         node2.edges.add(node1);
     }
 
+    public void buildGraph(List<Connection> connections) {
+        for (Connection c : connections) {
+            Label from = (Label) c.getFromStation();
+            Label to = (Label) c.getDestinationStation();
+            double time = c.getTravelTime();
+
+            addEdge(from, to);
+            storeWeight(from, to, time);
+            storeWeight(to, from, time);
+        }
+    }
+
+    public void print() {
+        GraphNode node = headNode;
+        while (node != null) {
+            System.out.print("[ " + node.id + " : ");
+            for (GraphNode neighbor : node.edges) {
+                System.out.print(neighbor.id + " ");
+            }
+            System.out.println("]");
+            node = node.next;
+        }
+    }
+
 }
 
 public static void main(String[] args) {
-
 }
