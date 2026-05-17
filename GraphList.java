@@ -57,7 +57,7 @@ public class GraphList<Label> {
         GraphNode node2 = getOrCreateNode(l2);
 
         node1.edges.add(node2);
-        node2.edges.add(node1);
+        node2.edges.add(node1); // got both because it's bidirectional
     }
 
     public void buildGraph(List<Connection> connections) {
