@@ -1,3 +1,4 @@
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.*;
@@ -5,7 +6,6 @@ import java.util.*;
 public class stationFinding {
 
     static void chooseStations() {
-        // System.out.println("the station is this station");
         Scanner myScanner = new Scanner(System.in);
         System.out.println("----------------------------------------------------------");
         System.out.println("Enter your starting station: ");
@@ -22,8 +22,7 @@ public class stationFinding {
 
         System.out.println("----------------------------------------------------------");
 
-        //myScanner.close();
-
+        // myScanner.close();
         // System.out.println("Your entry station is: " + inputStation + " and your
         // destination station is: " + destinationStation);
         stationScanning(inputStation, destinationStation);
@@ -64,7 +63,7 @@ public class stationFinding {
                 System.out.println("Your starting station is: " + inputStation);
             } else {
                 System.out.println("Your starting Station: " + inputStation
-                        + " has not been found in the network. Please try again" + "\n\n");
+                        + " has not been found in the network. Please try again");
                 try {
                     Thread.sleep(1000);
 
@@ -76,10 +75,11 @@ public class stationFinding {
             if (stationExists(destinationStation, connections)) {
                 System.out.println("Your destination station is: " + destinationStation + "");
                 System.out.println("----------------------------------------------------------");
+                System.out.println("Your journey will be between " + inputStation + " and " + destinationStation);
 
             } else {
                 System.out.println("Your destination Station: " + destinationStation
-                        + " has not been found in the network. Please try again" + "\n\n");
+                        + " has not been found in the network. Please try again");
                 try {
                     Thread.sleep(1000);
 
@@ -95,8 +95,7 @@ public class stationFinding {
 
     static boolean stationExists(String station, ArrayList<Connection> connections) {
         for (Connection c : connections) {
-            if (c.getFromStation().equalsIgnoreCase(station) ||
-                    c.getDestinationStation().equalsIgnoreCase(station)) {
+            if (c.getFromStation().equalsIgnoreCase(station) || c.getDestinationStation().equalsIgnoreCase(station)) {
                 return true;
             }
         }
