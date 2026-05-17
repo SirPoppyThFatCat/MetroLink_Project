@@ -27,12 +27,14 @@ public class stationFinding {
         // destination station is: " + destinationStation);
         stationScanning(inputStation, destinationStation);
     }
+    //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
+
 
     static void stationScanning(String inputStation, String destinationStation) {
         try {
             File stationFilePath = new File("Metrolink_times_linecolour(in).csv");
             // System.out.println("Beans");
-            ArrayList<String> stationArray = new ArrayList<String>();
+            //ArrayList<String> stationArray = new ArrayList<String>();
             ArrayList<Connection> connections = new ArrayList<Connection>();
 
             Scanner stationScanner = new Scanner(stationFilePath);
@@ -100,11 +102,11 @@ public class stationFinding {
             }
         }
         return false;
+
+        //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
     }
 
     public static void main(String[] args) {
         chooseStations();
-        // stationScanning();
-
     }
 }
