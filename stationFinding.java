@@ -23,9 +23,7 @@ public class stationFinding {
 
         System.out.println("----------------------------------------------------------");
 
-        // myScanner.close();
-        // System.out.println("Your entry station is: " + inputStation + " and your
-        // destination station is: " + destinationStation);
+    
         stationScanning(inputStation, destinationStation);
     }
         //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
@@ -34,8 +32,6 @@ public class stationFinding {
     static void stationScanning(String inputStation, String destinationStation) {
         try {
             File stationFilePath = new File("Metrolink_times_linecolour(in).csv");
-            // System.out.println("Beans");
-            //ArrayList<String> stationArray = new ArrayList<String>();
             ArrayList<Connection> connections = new ArrayList<Connection>();
 
             Scanner stationScanner = new Scanner(stationFilePath);
