@@ -1,6 +1,7 @@
 import java.util.*;
 
 public class GraphList<Label> {
+    
 
     // adjacency list container
     GraphNode headNode;
