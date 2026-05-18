@@ -40,13 +40,32 @@ public class Djikstra {
 
                 double baseWeight = graph.getWeight(u,v);
                 String lineUV = graph.getLine(u,v);
-                
+
+
+                //adding in the line changes
+                double lineChange = 2.0;
+
+                if(previousLine.get(u) !=null && !previousLine.get(u).equals(lineUV)){
+                    lineChange = 2.0;
+                }
+
+                double newDistance = distance.get(u) + baseWeight + lineChange;
+
+                if(newDistance<distance.get(v)){
+                    distance.put(v, newDistance);
+                    previousStation.put(v, u);
+                    previousLine.put(v, lineUV);
+                    prioQueue.add(v);
+                }
+
 
             }
             
 
 
         }
+
+        
 
 
         
