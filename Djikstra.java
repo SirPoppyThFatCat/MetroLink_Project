@@ -39,11 +39,12 @@ public class Djikstra {
 
                 double baseWeight = graph.getWeight(u, v);
                 String lineUV = graph.getLine(u, v);
+                String prev = previousLine.get(u);
 
                 // adding in the line changes
-                double lineChange = 2.0;
+                double lineChange = 0.0;
 
-                if (previousLine.get(u) != null && !previousLine.get(u).equals(lineUV)) {
+                if (prev != null && !prev.equals(lineUV)) {
                     lineChange = 2.0;
                 }
 
@@ -91,7 +92,7 @@ public class Djikstra {
             if (i > 0) {
                 String previousLine = graph.getLine(path.get(i - 1), a);
                 String nextLine = graph.getLine(a, b);
-                if (!previousLine.equals(nextLine)) {
+                if (previousLine != null && nextLine != null && !previousLine.equals(nextLine)) {
                     total += 2;
                 }
             }
@@ -104,10 +105,14 @@ public class Djikstra {
         List<String> out = new ArrayList<>();
         if (path.size() < 2) return out;
         String currentLine = graph.getLine(path.get(0), path.get(1));
+
         out.add("Get on the " + currentLine + " line at " + path.get(0));
+        
         for (int i = 1; i < path.size() - 1; i++) {
             String previousLine = graph.getLine(path.get(i - 1), path.get(i));
+
             String nextLine = graph.getLine(path.get(i), path.get(i + 1));
+
             if (!previousLine.equals(nextLine)) {
                 out.add("Change to the " + nextLine + " line at " + path.get(i));
             }
@@ -124,6 +129,6 @@ public class Djikstra {
 
 
     public static void main(String[] args) {
-        System.out.println("Djikstra's algorithm is one of the algorithms of all tim"); // yes
+        //System.out.println("Djikstra's algorithm is one of the algorithms of all tim"); // yes
     }
 }

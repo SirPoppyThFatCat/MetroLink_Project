@@ -57,7 +57,7 @@ public class stationFinding {
                 connections.add(c);
                 GraphList<String> graph = new GraphList<String>();
                 graph.buildGraph(connections);
-                graph.print();
+                //graph.print();
 
                 // ---------------------------------------- build djikstra
                 List<String> path = Djikstra.djikstraPath(graph, inputStation, destinationStation);
