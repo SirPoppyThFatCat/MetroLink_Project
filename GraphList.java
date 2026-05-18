@@ -8,14 +8,6 @@ public class GraphList<Label> {
     private final Map<String, Double> weightMap = new HashMap<>(); // hashmap
     private final Map<String, String> lineMap = new HashMap<>();
 
-    private String makeKey(Label from, Label to) {
-        return from + "," + to;
-    }
-
-    public void storeWeight(Label from, Label to, double time) {
-        weightMap.put(makeKey(from, to), time);
-    }
-
     public class GraphNode {
         Label id; // station name
         LinkedHashSet<GraphNode> edges; // set of neighbour nodes
@@ -26,6 +18,16 @@ public class GraphList<Label> {
             this.edges = new LinkedHashSet<>();
         }
     }
+
+    private String makeKey(Label from, Label to) {
+        return from + "," + to;
+    }
+
+    public void storeWeight(Label from, Label to, double time) {
+        weightMap.put(makeKey(from, to), time);
+    }
+
+    
 
     public void addNode(Label label) {
         GraphNode node = new GraphNode(label);
@@ -67,8 +69,8 @@ public class GraphList<Label> {
             Label from = (Label) c.getFromStation();
             Label to = (Label) c.getDestinationStation();
             double time = c.getTravelTime();
-            storeLine(from, to, c.getLineColour());
-            storeLine(to, from, c.getLineColour());
+            storeLine(from, to, c.getLineColour().toLowerCase());
+            storeLine(to, from, c.getLineColour().toLowerCase());
 
             addEdge(from, to);
             storeWeight(from, to, time);
@@ -76,17 +78,7 @@ public class GraphList<Label> {
         }
     }
 
-    public void print() {
-        GraphNode node = headNode;
-        while (node != null) {
-            System.out.print("[ " + node.id + " : ");
-            for (GraphNode neighbor : node.edges) {
-                System.out.print(neighbor.id + " ");
-            }
-            System.out.println("]");
-            node = node.next;
-        }
-    }
+
 
     public void storeLine(Label from, Label to, String lineColour) {
         lineMap.put(makeKey(from, to), lineColour);

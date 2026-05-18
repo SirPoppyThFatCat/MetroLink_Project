@@ -44,7 +44,7 @@ public class Djikstra {
                 // adding in the line changes
                 double lineChange = 0.0;
 
-                if (prev != null && !prev.equals(lineUV)) {
+                if (prev != null && !prev.equalsIgnoreCase(lineUV)) {
                     lineChange = 2.0;
                 }
 
