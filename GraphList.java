@@ -5,6 +5,7 @@ public class GraphList<Label> {
     // adjacency list container
     GraphNode headNode;
     private Map<String, Double> weightMap = new HashMap<>(); // hashmap
+    private Map<String, String> lineMap = new HashMap<>();
 
     private String makeKey(Label from, Label to) {
         return from + "," + to;
@@ -31,7 +32,7 @@ public class GraphList<Label> {
         headNode = node;
     }
 
-    private GraphNode findNode(Label label) {
+    GraphNode findNode(Label label) {
         GraphNode node = headNode;
         while (node != null) {
             if (node.id.equals(label))
@@ -65,6 +66,8 @@ public class GraphList<Label> {
             Label from = (Label) c.getFromStation();
             Label to = (Label) c.getDestinationStation();
             double time = c.getTravelTime();
+            storeLine(from, to, c.getLineColour());
+            storeLine(to, from, c.getLineColour());
 
             addEdge(from, to);
             storeWeight(from, to, time);
@@ -83,9 +86,17 @@ public class GraphList<Label> {
             node = node.next;
         }
     }
-public static void main(String[] args) {
-    
-}
+
+    public void storeLine(Label from, Label to, String lineColour) {
+        lineMap.put(makeKey(from, to), lineColour);
+    }
+
+    public String getLine(Label from, Label to) {
+        return lineMap.get(makeKey(from, to));
+    }
+
+    public static void main(String[] args) {
+
+    }
 
 }
-

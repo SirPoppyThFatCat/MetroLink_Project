@@ -1,6 +1,7 @@
+import java.lang.classfile.Label;
 import java.util.*;
 
-public class Djikstra {      
+public class Djikstra {
     public static <Label> List<Label> djikstraPath(GraphList<Label> graph, Label start, Label end){
         
         Map<Label, Double> distance = new HashMap<>();
@@ -18,7 +19,34 @@ public class Djikstra {
             node = node.next;
         }
 
-        
+        distance.put(start, 0.0);
+        prioQueue.add(start);
+
+        //the main loop of pain and suffering and dutch algorithmyicspeople
+
+        while(!prioQueue.isEmpty()){
+            Label u = prioQueue.poll();
+
+            if(u.equals(end)){
+                break;  //as we have reached the end
+            }
+
+
+            GraphList<Label>.GraphNode uNode = graph.findNode(u);
+            if (uNode == null) continue;
+
+            for(GraphList<Label>.GraphNode neighbour: uNode.edges){
+                Label v = neighbour.id;
+
+                double baseWeight = graph.getWeight(u,v);
+                String lineUV = graph.getLine(u,v);
+                
+
+            }
+            
+
+
+        }
 
 
         
@@ -27,9 +55,8 @@ public class Djikstra {
         return null;
 
     }
-    
 
     public static void main(String[] args) {
-        System.out.println("Djikstra's algorithm is one of the algorithms of all tim"); //yes
+        System.out.println("Djikstra's algorithm is one of the algorithms of all tim"); // yes
     }
 }
