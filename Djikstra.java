@@ -6,6 +6,17 @@ public class Djikstra {
         Map<Label, Double> distance = new HashMap<>();
         Map<Label, Double> previousStation = new HashMap<>();
         Map<Label, Double> previousLine = new HashMap<>();
+//use a priority queue to search by the best distance
+        PriorityQueue<Label> prioQueue = new PriorityQueue<>(Comparator.comparingDouble(distance::get));
+
+        GraphList<Label>.GraphNode node = graph.headNode;
+
+        while (node!=null){
+            distance.put(node.id, Double.POSITIVE_INFINITY);
+            previousStation.put(node.id, null);
+            previousLine.put(node.id, null);
+            node = node.next;
+        }
 
         
 
