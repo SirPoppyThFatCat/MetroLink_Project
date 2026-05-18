@@ -113,7 +113,7 @@ public class Djikstra {
 
             String nextLine = graph.getLine(path.get(i), path.get(i + 1));
 
-            if (!previousLine.equals(nextLine)) {
+            if (previousLine != null && nextLine != null && !previousLine.equals(nextLine))  {
                 out.add("Change to the " + nextLine + " line at " + path.get(i));
             }
         }

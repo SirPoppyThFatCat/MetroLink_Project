@@ -39,13 +39,13 @@ public class stationFinding {
 
             while (stationScanner.hasNextLine()) {
                 String line = stationScanner.nextLine();
-                String[] fields = line.split(",");
+                String[] fields = line.split(",", -1);
                 if (fields.length < 3) {
                     continue;
                 }
 
-                if (fields[1].isEmpty() && fields[2].isEmpty()) {
-                    currentLineColour = fields[0];
+                if (fields[1].trim().isEmpty() && fields[2].trim().isEmpty()) {
+                    currentLineColour = fields[0].trim();
                     continue;
                 }
 
@@ -55,6 +55,7 @@ public class stationFinding {
 
                 Connection c = new Connection(currentLineColour, cameFromStation, goingToStation, time);
                 connections.add(c);
+            }
                 GraphList<String> graph = new GraphList<String>();
                 graph.buildGraph(connections);
                 // graph.print();
@@ -75,7 +76,7 @@ public class stationFinding {
                     System.out.println(" - " + s);
                 }
 
-            }
+            
             if (stationExists(inputStation, connections)) {
                 System.out.println("Your starting station is: " + inputStation);
             } else {
