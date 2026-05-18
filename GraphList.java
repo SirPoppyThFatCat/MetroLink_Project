@@ -1,11 +1,12 @@
 import java.util.*;
 
+@SuppressWarnings("unchecked")
 public class GraphList<Label> {
 
     // adjacency list container
     GraphNode headNode;
-    private Map<String, Double> weightMap = new HashMap<>(); // hashmap
-    private Map<String, String> lineMap = new HashMap<>();
+    private final Map<String, Double> weightMap = new HashMap<>(); // hashmap
+    private final Map<String, String> lineMap = new HashMap<>();
 
     private String makeKey(Label from, Label to) {
         return from + "," + to;

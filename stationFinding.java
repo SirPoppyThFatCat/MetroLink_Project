@@ -23,11 +23,10 @@ public class stationFinding {
 
         System.out.println("----------------------------------------------------------");
 
-    
         stationScanning(inputStation, destinationStation);
     }
-        //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
-
+    // ----------------------------------------------- wooo spooky linebreak wooo
+    // spooooooky woooo spoooooky new feature
 
     static void stationScanning(String inputStation, String destinationStation) {
         try {
@@ -60,7 +59,16 @@ public class stationFinding {
                 graph.buildGraph(connections);
                 graph.print();
 
-                //---------------------------------------- build djikstra
+                // ---------------------------------------- build djikstra
+                List<String> path = Djikstra.djikstraPath(graph, inputStation, destinationStation);
+                double totalTime = Djikstra.computeJourneyTime(graph, path);
+                
+                System.out.println("Shortest Time Route:");
+                for(String station:path){
+                    System.out.println(station);
+                }
+
+                System.out.println("Total journey time with line changes is: " +totalTime);
 
 
 
@@ -107,7 +115,8 @@ public class stationFinding {
         }
         return false;
 
-        //----------------------------------------------- wooo spooky linebreak wooo spooooooky woooo spoooooky new feature
+        // ----------------------------------------------- wooo spooky linebreak wooo
+        // spooooooky woooo spoooooky new feature
     }
 
     public static void main(String[] args) {
