@@ -95,6 +95,10 @@ public class GraphList<Label> {
         return lineMap.get(makeKey(from, to));
     }
 
+    public double getWeight(Label from, Label to) {
+        return weightMap.get(makeKey(from, to));
+    }
+
     public static void main(String[] args) {
 
     }
