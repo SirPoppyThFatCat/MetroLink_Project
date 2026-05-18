@@ -27,6 +27,18 @@ public class GraphList<Label> {
         weightMap.put(makeKey(from, to), time);
     }
 
+    public void storeLine(Label from, Label to, String lineColour) {
+        lineMap.put(makeKey(from, to), lineColour);
+    }
+
+    public String getLine(Label from, Label to) {
+        return lineMap.get(makeKey(from, to));
+    }
+
+    public double getWeight(Label from, Label to) {
+        return weightMap.get(makeKey(from, to));
+    }
+
     
 
     public void addNode(Label label) {
@@ -80,17 +92,7 @@ public class GraphList<Label> {
 
 
 
-    public void storeLine(Label from, Label to, String lineColour) {
-        lineMap.put(makeKey(from, to), lineColour);
-    }
-
-    public String getLine(Label from, Label to) {
-        return lineMap.get(makeKey(from, to));
-    }
-
-    public double getWeight(Label from, Label to) {
-        return weightMap.get(makeKey(from, to));
-    }
+    
 
     public static void main(String[] args) {
 
