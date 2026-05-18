@@ -57,20 +57,23 @@ public class stationFinding {
                 connections.add(c);
                 GraphList<String> graph = new GraphList<String>();
                 graph.buildGraph(connections);
-                //graph.print();
+                // graph.print();
 
                 // ---------------------------------------- build djikstra
                 List<String> path = Djikstra.djikstraPath(graph, inputStation, destinationStation);
                 double totalTime = Djikstra.computeJourneyTime(graph, path);
-                
+                List<String> lineChangeInstructions = Djikstra.computeLineInstructions(graph, path);
+
                 System.out.println("Shortest Time Route:");
-                for(String station:path){
+                for (String station : path) {
                     System.out.println(station);
                 }
 
-                System.out.println("Total journey time with line changes is: " +totalTime);
-
-
+                System.out.println("Total journey time with line changes is: " + totalTime);
+                System.out.println("\nLine Instructions:");
+                for (String s : lineChangeInstructions) {
+                    System.out.println(" - " + s);
+                }
 
             }
             if (stationExists(inputStation, connections)) {
