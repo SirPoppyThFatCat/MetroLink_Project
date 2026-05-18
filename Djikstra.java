@@ -103,32 +103,26 @@ public class Djikstra {
 
     public static <Label> List<String> computeLineInstructions(GraphList<Label> graph, List<Label> path) {
         List<String> out = new ArrayList<>();
-        if (path.size() < 2) return out;
+        if (path.size() < 2)
+            return out;
         String currentLine = graph.getLine(path.get(0), path.get(1));
 
-        out.add("Get on the " + currentLine + " line at " + path.get(0));
-        
+        out.add("Start your journey on the " + currentLine + " line at " + path.get(0));
+
         for (int i = 1; i < path.size() - 1; i++) {
             String previousLine = graph.getLine(path.get(i - 1), path.get(i));
 
             String nextLine = graph.getLine(path.get(i), path.get(i + 1));
 
-            if (previousLine != null && nextLine != null && !previousLine.equals(nextLine))  {
-                out.add("Change to the " + nextLine + " line at " + path.get(i));
+            if (previousLine != null && nextLine != null && !previousLine.equals(nextLine)) {
+                out.add("Change for the " + nextLine + " line at " + path.get(i));
             }
         }
         return out;
     }
-    
-
-
-
-
-    
-
-
 
     public static void main(String[] args) {
-        //System.out.println("Djikstra's algorithm is one of the algorithms of all tim"); // yes
+        // System.out.println("Djikstra's algorithm is one of the algorithms of all
+        // tim"); // yes
     }
 }
